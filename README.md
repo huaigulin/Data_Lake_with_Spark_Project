@@ -1,4 +1,4 @@
-# Data Engineering Project 4: Data Lake with Spark
+# Data Lake with Spark Project
 
 - The purpose of the project is to apply what I have learnt on data lake, Spark and AWS, and build an ETL pipeline for a data lake hosted on Amazon S3.
 
