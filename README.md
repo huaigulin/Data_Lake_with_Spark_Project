@@ -119,11 +119,11 @@
 
 ## ETL Pipeline
 
-- `etl.py` file contains code for connecting to AWS EMR, creating a Spark session and running ETL pipeline, including extracting data from AWS S3, transforming data with Spark using schema on read technique, and loading data back into S3.
+- [etl.py](./etl.py) contains code for connecting to AWS EMR, creating a Spark session and running ETL pipeline, including extracting data from AWS S3, transforming data with Spark using schema on read technique, and loading data back into S3.
 
 ## How to Run
 
-1. Create an IAM Role and a EMR cluster on AWS and get `ACCESS_KEY_ID` and `SECRET_ACCESS_KEY` from an IAM role that can access EMR. Fill out the information in `dwh.cfg` config file.
+1. Create an IAM Role and a EMR cluster on AWS and get `ACCESS_KEY_ID` and `SECRET_ACCESS_KEY` from an IAM role that can access EMR. Fill out the information in [dl.cfg](./dl.cfg) config file.
 
 1. Run ETL pipeline:
 
