@@ -123,7 +123,9 @@
 
 ## How to Run
 
-1. Create an IAM Role and a EMR cluster on AWS and get `ACCESS_KEY_ID` and `SECRET_ACCESS_KEY` from an IAM role that can access EMR. Fill out the information in [dl.cfg](./dl.cfg) config file.
+1. Create an IAM Role and an EMR cluster on AWS and get `ACCESS_KEY_ID` and `SECRET_ACCESS_KEY` from an IAM role that can access EMR. Fill out the information in [dl.cfg](./dl.cfg) config file.
+
+1. Create an S3 bucket called sparkify-tables, which is used to store the parquet file output of the ETL pipeline.
 
 1. Run ETL pipeline:
 
@@ -131,4 +133,10 @@
    python etl.py
    ```
 
-1. Wait until ETL pipelin finish running and check tables created in S3.
+1. Wait until ETL pipeline finish running and check tables created in S3. Note that running the pipeline takes long time since there are many input files. To make it faster, we can limit input to some part of the whole directory. For example, use `"s3a://udacity-dend/song_data/A/A/A/*.json"` instead of `"s3a://udacity-dend/song_data/*/*/*/*.json"`
+
+## Results
+
+- ![results](./results.png)
+
+- Check [results.ipynb](./results.ipynb) for table schema and data samples.

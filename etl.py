@@ -41,7 +41,7 @@ def process_song_data(spark):
     """
 
     # get filepath to song data file
-    song_data = "s3a://udacity-dend/song_data/A/A/A/*.json"
+    song_data = "s3a://udacity-dend/song_data/*/*/*/*.json"
     
     # read song data file
     df = spark.read.json(song_data)
@@ -76,7 +76,7 @@ def process_log_data(spark):
     """
 
     # get filepath to log data file
-    log_data = "s3a://udacity-dend/log_data/2018/11/*.json"
+    log_data = "s3a://udacity-dend/log_data/*/*/*.json"
 
     # read log data file
     df = spark.read.json(log_data)
@@ -117,7 +117,7 @@ def process_log_data(spark):
     time_table.write.partitionBy("year", "month").parquet("s3a://sparkify-tables/time.parquet")
 
     # read in song data to use for songplays table
-    song_df = spark.read.json("s3a://udacity-dend/song_data/A/A/A/*.json")
+    song_df = spark.read.json("s3a://udacity-dend/song_data/*/*/*/*.json")
 
     # join song and log dataset to create songplays table
     songplays_table = song_df.join(df, (song_df['artist_name'] == df['artist']) & (song_df['title'] == df['song'])) \
